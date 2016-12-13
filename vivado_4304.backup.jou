@@ -1,0 +1,44 @@
+#-----------------------------------------------------------
+# Vivado v2016.3 (64-bit)
+# SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
+# IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+# Start of session at: Mon Nov 28 14:41:06 2016
+# Process ID: 4304
+# Current directory: C:/Users/Electricity/Desktop/TankLast
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4248 C:\Users\Electricity\Desktop\TankLast\Tank.xpr
+# Log file: C:/Users/Electricity/Desktop/TankLast/vivado.log
+# Journal file: C:/Users/Electricity/Desktop/TankLast\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Electricity/Desktop/TankLast/Tank.xpr
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+wait_on_run impl_1
+open_hw
+disconnect_hw_server localhost:3121
+connect_hw_server -url localhost:3121
+current_hw_target [get_hw_targets */xilinx_tcf/Digilent/210183A28267A]
+set_property PARAM.FREQUENCY 15000000 [get_hw_targets */xilinx_tcf/Digilent/210183A28267A]
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Electricity/Desktop/TankLast/Tank.runs/impl_1/tankGame.bit} [lindex [get_hw_devices xc7a35t_0] 0]
+current_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROGRAM.FILE {C:/Users/Electricity/Desktop/TankLast/Tank.runs/impl_1/tankGame.bit} [lindex [get_hw_devices xc7a35t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a35t_0] 0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close [ open C:/Users/Electricity/Desktop/TankLast/Tank.srcs/sources_1/new/buttonListener.sv w ]
+add_files C:/Users/Electricity/Desktop/TankLast/Tank.srcs/sources_1/new/buttonListener.sv
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+wait_on_run impl_1
+disconnect_hw_server localhost:3121
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Electricity/Desktop/TankLast/Tank.runs/impl_1/tankGame.bit} [lindex [get_hw_devices xc7a35t_0] 0]
+current_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROGRAM.FILE {C:/Users/Electricity/Desktop/TankLast/Tank.runs/impl_1/tankGame.bit} [lindex [get_hw_devices xc7a35t_0] 0]
+program_hw_devices [lindex [get_hw_devices xc7a35t_0] 0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]

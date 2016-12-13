@@ -1,0 +1,82 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.3 (win64) Build 1682563 Mon Oct 10 19:07:27 MDT 2016
+| Date         : Mon Nov 28 16:48:55 2016
+| Host         : Electricity-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : report_control_sets -verbose -file tankGame_control_sets_placed.rpt
+| Design       : tankGame
+| Device       : xc7a35ti
+-------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    18 |
+| Unused register locations in slices containing registers |    70 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             104 |           30 |
+| No           | No                    | Yes                    |              10 |            3 |
+| No           | Yes                   | No                     |              56 |           39 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |             176 |          150 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++---------------------------+---------------+----------------------+------------------+----------------+
+|        Clock Signal       | Enable Signal |   Set/Reset Signal   | Slice Load Count | Bel Load Count |
++---------------------------+---------------+----------------------+------------------+----------------+
+|  clkdiv1/CLK              |               | t1/blue_reg[1]_36    |                1 |              2 |
+|  t1/way_reg[1]_i_2_n_0    |               |                      |                1 |              2 |
+|  t2/way_reg[1]_i_2__0_n_0 |               |                      |                1 |              2 |
+|  clkdiv1/CLK              |               | VGA1/green_reg[0]    |                2 |              3 |
+|  clkdiv1/CLK              |               | t1/red_reg[2]_31     |                1 |              3 |
+|  t1/blue_reg[1]_2[0]      |               | t1/blue_reg[1]_7[0]  |                2 |              6 |
+|  t1/blue_reg[1]_4[0]      |               | t1/blue_reg[1]_5[0]  |                6 |              6 |
+|  t1/red_reg[2]_2[0]       |               | t1/red_reg[2]_7[0]   |                3 |              6 |
+|  t1/red_reg[2]_4[0]       |               | t1/red_reg[2]_5[0]   |                6 |              6 |
+|  t2/blue_reg[1]_1[0]      |               | t2/blue_reg[1]_13[0] |                2 |              6 |
+|  t2/blue_reg[1]_10[0]     |               | t2/blue_reg[1]_11[0] |                6 |              6 |
+|  t2/blue_reg[1]_3[0]      |               | t2/blue_reg[1]_4[0]  |                6 |              6 |
+|  t2/blue_reg[1]_8[0]      |               | t2/blue_reg[1]_12[0] |                4 |              6 |
+|  clkdiv1/CLK              |               | reset_IBUF           |                3 |             10 |
+|  clkdiv1/CLK              | VGA1/sel      | reset_IBUF           |                3 |             10 |
+|  mclk_BUFG                | bl2/E[0]      | reset_IBUF           |               75 |             83 |
+|  mclk_BUFG                | bl1/E[0]      | reset_IBUF           |               72 |             83 |
+|  clk_IBUF_BUFG            |               |                      |               28 |            100 |
++---------------------------+---------------+----------------------+------------------+----------------+
+
+
++--------+-----------------------+
+| Fanout | Number of ControlSets |
++--------+-----------------------+
+| 2      |                     3 |
+| 3      |                     2 |
+| 6      |                     8 |
+| 10     |                     2 |
+| 16+    |                     3 |
++--------+-----------------------+
+
+

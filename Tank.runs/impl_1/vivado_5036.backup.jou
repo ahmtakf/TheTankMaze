@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.3 (64-bit)
+# SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
+# IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+# Start of session at: Mon Nov 28 01:20:15 2016
+# Process ID: 5036
+# Current directory: C:/Users/Electricity/Desktop/TankLast/Tank.runs/impl_1
+# Command line: vivado.exe -log tankGame.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source tankGame.tcl -notrace
+# Log file: C:/Users/Electricity/Desktop/TankLast/Tank.runs/impl_1/tankGame.vdi
+# Journal file: C:/Users/Electricity/Desktop/TankLast/Tank.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source tankGame.tcl -notrace
