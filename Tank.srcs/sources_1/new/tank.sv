@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 
 module tank(
-    input logic bclk,
     input logic mclk,
     input logic reset,
     logic [3:0] command,
     input logic tankNo,
     output logic [9:0] pos0, pos1, pos2, pos3, pos4, pos5, pos6, pos7,  //tankTop, tankBottom, tankLeft, tankRight
-    output logic [2:0] nDirection
+    output logic [2:0] nDirection,
+    output logic isObject
     );
     
 parameter fFPTankTop = 300;    //First tank initial position
@@ -32,6 +32,7 @@ logic [2:0] direction;
 logic [1:0] way;
 
 move m1( direction, way, pos0, pos1, pos2, pos3, pos4, pos5, pos6, pos7, nPos0, nPos1, nPos2, nPos3, nPos4, nPos5, nPos6, nPos7, nDirection);
+objectCol obj(nPos0, nPos1, nPos2, nPos3, nPos4, nPos5, nPos6, nPos7, isObject);
 
 always_ff @( posedge reset or posedge mclk)
 begin
@@ -64,18 +65,21 @@ begin
     end
     else
     begin
-        if ( command > 4'b0000 && bclk == 1)
+        if ( command > 4'b0000)
         begin
-            direction <= nDirection;      
-            //NextState
-            pos0 <= nPos0;
-            pos1 <= nPos1;
-            pos2 <= nPos2;
-            pos3 <= nPos3;   
-            pos4 <= nPos4;
-            pos5 <= nPos5;
-            pos6 <= nPos6;
-            pos7 <= nPos7;
+            if ( isObject == 0)
+            begin
+                direction <= nDirection;      
+                //NextState
+                pos0 <= nPos0;
+                pos1 <= nPos1;
+                pos2 <= nPos2;
+                pos3 <= nPos3;   
+                pos4 <= nPos4;
+                pos5 <= nPos5;
+                pos6 <= nPos6;
+                pos7 <= nPos7;
+            end
         end   
     end    
 end
@@ -86,13 +90,13 @@ begin
     begin
         way = 2'b00;
     end
-    if ( command[1])
-    begin
-        way = 2'b01;
-    end
     if ( command[2])
     begin
         way = 2'b10;
+    end
+    if ( command[1])
+    begin
+        way = 2'b01;
     end
     if ( command[3])
     begin

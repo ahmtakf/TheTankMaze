@@ -11,7 +11,7 @@ module clkdiv(
     
     logic temporal = 0;
     logic mTemporal = 0;
-    logic [30:0] d = 1000000;
+    logic [30:0] d = 20000000;
 
     
     //VGA clock

@@ -48,6 +48,9 @@ set_property PACKAGE_PIN N17 [get_ports {p2Command[2]}]
 set_property PACKAGE_PIN M18 [get_ports {p2Command[1]}]                          
       set_property IOSTANDARD LVCMOS33 [get_ports {p2Command[1]}] 
 set_property PACKAGE_PIN K17 [get_ports {p2Command[3]}]                          
-      set_property IOSTANDARD LVCMOS33 [get_ports {p2Command[3]}] 
-                
-        
+      set_property IOSTANDARD LVCMOS33 [get_ports {p2Command[3]}]       
+      
+      set_property PACKAGE_PIN U19 [get_ports {led1}]                          
+            set_property IOSTANDARD LVCMOS33 [get_ports {led1}]       
+            set_property PACKAGE_PIN E19 [get_ports {led2}]                          
+                  set_property IOSTANDARD LVCMOS33 [get_ports {led2}]       

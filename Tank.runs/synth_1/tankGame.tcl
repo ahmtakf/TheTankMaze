@@ -5,6 +5,8 @@
 set_param xicom.use_bs_reader 1
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35ticpg236-1L
 
 set_param project.singleFileAddWarning.threshold 0
@@ -16,11 +18,11 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_cache_permissions disable [current_project]
 read_verilog -library xil_defaultlib -sv {
+  C:/Users/Electricity/Desktop/TankLast/Tank.srcs/sources_1/new/objectCol.sv
   C:/Users/Electricity/Desktop/TankLast/Tank.srcs/sources_1/new/forward.sv
-  C:/Users/Electricity/Desktop/TankLast/Tank.srcs/sources_1/new/buttonListener.sv
-  C:/Users/Electricity/Desktop/TankLast/Tank.srcs/sources_1/new/clkdiv.sv
   C:/Users/Electricity/Desktop/TankLast/Tank.srcs/sources_1/new/VGA.sv
   C:/Users/Electricity/Desktop/TankLast/Tank.srcs/sources_1/new/counterGenerator.sv
+  C:/Users/Electricity/Desktop/TankLast/Tank.srcs/sources_1/new/clkdiv.sv
   C:/Users/Electricity/Desktop/TankLast/Tank.srcs/sources_1/new/tank.sv
   C:/Users/Electricity/Desktop/TankLast/Tank.srcs/sources_1/new/tankGame.sv
 }

@@ -20,6 +20,8 @@ module move(
  parameter headWeight = 6;
  
 
+ 
+
 /*
 way == 00 move
 way == 01 left
@@ -569,5 +571,6 @@ begin
         nPos6 = cPos6;
         nPos7 = cPos7;
     end
+
 end
 endmodule

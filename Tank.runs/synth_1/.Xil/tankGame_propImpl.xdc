@@ -39,3 +39,7 @@ set_property src_info {type:XDC file:1 line:48 export:INPUT save:INPUT read:READ
 set_property PACKAGE_PIN M18 [get_ports {p2Command[1]}]
 set_property src_info {type:XDC file:1 line:50 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN K17 [get_ports {p2Command[3]}]
+set_property src_info {type:XDC file:1 line:53 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN U19 [get_ports {led1}]
+set_property src_info {type:XDC file:1 line:55 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN E19 [get_ports {led2}]

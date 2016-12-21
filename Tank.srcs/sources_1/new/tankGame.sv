@@ -9,7 +9,9 @@ module tankGame(
 	output logic [2:0] green,//green vga output - 3 bits
 	output logic [1:0] blue,	//blue vga output - 2 bits
 	output logic hsync,		//horizontal sync out
-	output logic vsync			//vertical sync out
+	output logic vsync	,	//vertical sync out
+	output logic led1,
+	output logic led2
 	);
 // VGA display clock interconnect
 logic dclk, mclk;
@@ -23,7 +25,6 @@ logic [9:0] ft4, st4;//HEad
 logic [9:0] ft5, st5;
 logic [9:0] ft6, st6;
 logic [9:0] ft7, st7;
-logic bclk1, bclk2;
 
 logic [2:0] fDirection;
 logic [2:0] sDirection;
@@ -36,6 +37,15 @@ parameter vbp = 31; 		// end of vertical back porch
 parameter vfp = 511; 	// beginning of vertical front porch
 parameter headS = 10; //Head 
 
+parameter obj1Top = 150; //Obje1
+parameter obj1Bottom = 180;
+parameter obj1Left = 0;
+parameter obj1Right = 300;
+parameter obj2Top = 150; //Obje2
+parameter obj2Bottom = 350;
+parameter obj2Left = 500;
+parameter obj2Right = 530;
+
 
 // generate & display clock
 clkdiv clkdiv1( clk, dclk, mclk);
@@ -43,11 +53,8 @@ clkdiv clkdiv1( clk, dclk, mclk);
 // VGA controller
 VGA VGA1( dclk, reset, hsync, vsync, inDisplayArea, hc, vc);
 	
-tank t1( bclk1, mclk, reset, p1Command, 0, ft0, ft1, ft2, ft3, ft4, ft5, ft6, ft7, fDirection);
-tank t2( bclk2, mclk, reset, p2Command, 1, st0, st1, st2, st3, st4, st5, st6, st7, sDirection);
-
-buttonListener bl1( clk, p1Command, bclk1);
-buttonListener bl2( clk, p2Command, bclk2);
+tank t1( mclk, reset, p1Command, 0, ft0, ft1, ft2, ft3, ft4, ft5, ft6, ft7, fDirection, led1);
+tank t2( mclk, reset, p2Command, 1, st0, st1, st2, st3, st4, st5, st6, st7, sDirection, led2);
 
 counterGenerator cg1( hc, vc, fDirection, ft0, ft1, ft2, ft3, ft4, ft5, ft6, ft7, fCounterHL, fCounterHR, fCounterTL, fCounterTR);    
 counterGenerator cg2( hc, vc, sDirection, st0, st1, st2, st3, st4, st5, st6, st7, sCounterHL, sCounterHR, sCounterTL, sCounterTR);    
@@ -57,8 +64,20 @@ counterGenerator cg2( hc, vc, sDirection, st0, st1, st2, st3, st4, st5, st6, st7
 	begin
 	   if ( inDisplayArea)
 	   begin 
+	       if ( vc >= vbp + obj1Top  && vc < vbp + obj1Bottom && hc >= hbp + obj1Left && hc < hbp + obj1Right)
+	       begin
+	           red = 3'b111;
+               green = 3'b110;
+               blue = 2'b11;
+	       end
+	       else if ( vc >= vbp + obj2Top  && vc < vbp + obj2Bottom && hc >= hbp + obj2Left && hc < hbp + obj2Right)
+	       begin
+	           red = 3'b111;
+               green = 3'b110;
+               blue = 2'b11;
+	       end 
            //Draw First
-           if ( vc >= vbp + ft4  && vc < vbp + ft5 && hc >= hbp + ft6 + fCounterHL && hc < hbp + ft7 - fCounterHR)
+           else if ( vc >= vbp + ft4  && vc < vbp + ft5 && hc >= hbp + ft6 + fCounterHL && hc < hbp + ft7 - fCounterHR)
            begin
                red = 3'b111;
                green = 0;
